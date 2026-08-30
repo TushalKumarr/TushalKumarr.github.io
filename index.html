@@ -1,527 +1,511 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiMwZDBmMWEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMjgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTAsMjggMTQsMTYgMjAsMjYiIGZpbGw9IiM3YzZkZmEiLz4KICA8cG9seWdvbiBwb2ludHM9IjIyLDI4IDI2LDIwIDMwLDI4IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHBvbHlnb24gcG9pbnRzPSIyOCwyOCAzMiwxMCAzNiwyOCIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzQsMjggMzgsMjAgNDIsMjgiIGZpbGw9IiNhODU1ZjciLz4KICA8cG9seWdvbiBwb2ludHM9IjQ0LDI4IDUwLDE2IDU0LDI4IiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMTAiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMjYiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI5IiAgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMzgiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iNTQiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHJlY3QgeD0iOCIgIHk9IjM0IiB3aWR0aD0iMjQiIGhlaWdodD0iNSIgcng9IjEuNSIgZmlsbD0iI2E1YjRmYyIvPgogIDxyZWN0IHg9IjE3IiB5PSIzNCIgd2lkdGg9IjUiICBoZWlnaHQ9IjI0IiByeD0iMS41IiBmaWxsPSIjYTViNGZjIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNSIgIGhlaWdodD0iMjQiIHJ4PSIxLjUiIGZpbGw9IiNjMDg0ZmMiLz4KICA8cG9seWdvbiBwb2ludHM9IjM5LDM0IDU0LDM0IDU0LDM5IDQ0LDQ2IiBmaWxsPSIjYzA4NGZjIi8+CiAgPHBvbHlnb24gcG9pbnRzPSI0NCw0NiA1NCw1MyA1NCw1OCAzOSw1OCIgZmlsbD0iI2MwODRmYyIvPgo8L3N2Zz4=" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiMwZDBmMWEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMjgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTAsMjggMTQsMTYgMjAsMjYiIGZpbGw9IiM3YzZkZmEiLz4KICA8cG9seWdvbiBwb2ludHM9IjIyLDI4IDI2LDIwIDMwLDI4IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHBvbHlnb24gcG9pbnRzPSIyOCwyOCAzMiwxMCAzNiwyOCIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzQsMjggMzgsMjAgNDIsMjgiIGZpbGw9IiNhODU1ZjciLz4KICA8cG9seWdvbiBwb2ludHM9IjQ0LDI4IDUwLDE2IDU0LDI4IiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMTAiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMjYiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI5IiAgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMzgiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iNTQiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHJlY3QgeD0iOCIgIHk9IjM0IiB3aWR0aD0iMjQiIGhlaWdodD0iNSIgcng9IjEuNSIgZmlsbD0iI2E1YjRmYyIvPgogIDxyZWN0IHg9IjE3IiB5PSIzNCIgd2lkdGg9IjUiICBoZWlnaHQ9IjI0IiByeD0iMS41IiBmaWxsPSIjYTViNGZjIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNSIgIGhlaWdodD0iMjQiIHJ4PSIxLjUiIGZpbGw9IiNjMDg0ZmMiLz4KICA8cG9seWdvbiBwb2ludHM9IjM5LDM0IDU0LDM0IDU0LDM5IDQ0LDQ2IiBmaWxsPSIjYzA4NGZjIi8+CiAgPHBvbHlnb24gcG9pbnRzPSI0NCw0NiA1NCw1MyA1NCw1OCAzOSw1OCIgZmlsbD0iI2MwODRmYyIvPgo8L3N2Zz4=" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tushal Kumar Dawani | Computer Science Student & Software Developer</title>
-  <meta name="description" content="Portfolio of Tushal Kumar — CS student at Sukkur IBA, Java developer, and AI/ML enthusiast." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiMwZDBmMWEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMjgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTAsMjggMTQsMTYgMjAsMjYiIGZpbGw9IiM3YzZkZmEiLz4KICA8cG9seWdvbiBwb2ludHM9IjIyLDI4IDI2LDIwIDMwLDI4IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHBvbHlnb24gcG9pbnRzPSIyOCwyOCAzMiwxMCAzNiwyOCIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzQsMjggMzgsMjAgNDIsMjgiIGZpbGw9IiNhODU1ZjciLz4KICA8cG9seWdvbiBwb2ludHM9IjQ0LDI4IDUwLDE2IDU0LDI4IiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMTAiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMjYiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI5IiAgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMzgiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iNTQiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHJlY3QgeD0iOCIgIHk9IjM0IiB3aWR0aD0iMjQiIGhlaWdodD0iNSIgcng9IjEuNSIgZmlsbD0iI2E1YjRmYyIvPgogIDxyZWN0IHg9IjE3IiB5PSIzNCIgd2lkdGg9IjUiICBoZWlnaHQ9IjI0IiByeD0iMS41IiBmaWxsPSIjYTViNGZjIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNSIgIGhlaWdodD0iMjQiIHJ4PSIxLjUiIGZpbGw9IiNjMDg0ZmMiLz4KICA8cG9seWdvbiBwb2ludHM9IjM5LDM0IDU0LDM0IDU0LDM5IDQ0LDQ2IiBmaWxsPSIjYzA4NGZjIi8+CiAgPHBvbHlnb24gcG9pbnRzPSI0NCw0NiA1NCw1MyA1NCw1OCAzOSw1OCIgZmlsbD0iI2MwODRmYyIvPgo8L3N2Zz4=" />
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiMwZDBmMWEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMjgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTAsMjggMTQsMTYgMjAsMjYiIGZpbGw9IiM3YzZkZmEiLz4KICA8cG9seWdvbiBwb2ludHM9IjIyLDI4IDI2LDIwIDMwLDI4IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHBvbHlnb24gcG9pbnRzPSIyOCwyOCAzMiwxMCAzNiwyOCIgZmlsbD0iIzdjNmRmYSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzQsMjggMzgsMjAgNDIsMjgiIGZpbGw9IiNhODU1ZjciLz4KICA8cG9seWdvbiBwb2ludHM9IjQ0LDI4IDUwLDE2IDU0LDI4IiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMTAiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMjYiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI5IiAgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPGNpcmNsZSBjeD0iMzgiIGN5PSIxOSIgcj0iMi4yIiBmaWxsPSIjN2M2ZGZhIi8+CiAgPGNpcmNsZSBjeD0iNTQiIGN5PSIxNSIgcj0iMi44IiBmaWxsPSIjYTg1NWY3Ii8+CiAgPHJlY3QgeD0iOCIgIHk9IjM0IiB3aWR0aD0iMjQiIGhlaWdodD0iNSIgcng9IjEuNSIgZmlsbD0iI2E1YjRmYyIvPgogIDxyZWN0IHg9IjE3IiB5PSIzNCIgd2lkdGg9IjUiICBoZWlnaHQ9IjI0IiByeD0iMS41IiBmaWxsPSIjYTViNGZjIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNSIgIGhlaWdodD0iMjQiIHJ4PSIxLjUiIGZpbGw9IiNjMDg0ZmMiLz4KICA8cG9seWdvbiBwb2ludHM9IjM5LDM0IDU0LDM0IDU0LDM5IDQ0LDQ2IiBmaWxsPSIjYzA4NGZjIi8+CiAgPHBvbHlnb24gcG9pbnRzPSI0NCw0NiA1NCw1MyA1NCw1OCAzOSw1OCIgZmlsbD0iI2MwODRmYyIvPgo8L3N2Zz4=" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tushal Kumar Dawani | Computer Science Student & Software Developer</title>
+<meta name="description" content="Portfolio of Tushal Kumar — CS student at Sukkur IBA, Java developer, and AI/ML enthusiast." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<!-- NAVBAR -->
+<nav id="navbar" class="navbar">
+<div class="container nav-inner">
+<a href="#home" class="nav-logo">
+<span class="nav-logo-icon">TK</span>
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home" class="nav-link">Home</a></li>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#skills" class="nav-link">Skills</a></li>
+<li><a href="#services" class="nav-link">Services</a></li>
+<li><a href="#projects" class="nav-link">Projects</a></li>
+<li><a href="#experience" class="nav-link">Experience</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
+<button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">
+<span class="theme-icon theme-icon-moon">🌙</span>
+<span class="theme-icon theme-icon-sun">☀️</span>
+</button>
+<a href="#contact" class="btn-hire">Hire Me</a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+<div class="nav-mobile" id="navMobile">
+<ul>
+<li><a href="#home" class="nav-link">Home</a></li>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#skills" class="nav-link">Skills</a></li>
+<li><a href="#services" class="nav-link">Services</a></li>
+<li><a href="#projects" class="nav-link">Projects</a></li>
+<li><a href="#experience" class="nav-link">Experience</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
+</div>
+</nav>
 
-  <!-- NAVBAR -->
-  <nav id="navbar" class="navbar">
-    <div class="container nav-inner">
-      <a href="#home" class="nav-logo">
-        <span class="nav-logo-icon">TK</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home"       class="nav-link">Home</a></li>
-        <li><a href="#about"      class="nav-link">About</a></li>
-        <li><a href="#skills"     class="nav-link">Skills</a></li>
-        <li><a href="#services"   class="nav-link">Services</a></li>
-        <li><a href="#projects"   class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#contact"    class="nav-link">Contact</a></li>
-      </ul>
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">
-        <span class="theme-icon theme-icon-moon">🌙</span>
-        <span class="theme-icon theme-icon-sun">☀️</span>
-      </button>
-      <a href="#contact" class="btn-hire">Hire Me</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="navMobile">
-      <ul>
-        <li><a href="#home"       class="nav-link">Home</a></li>
-        <li><a href="#about"      class="nav-link">About</a></li>
-        <li><a href="#skills"     class="nav-link">Skills</a></li>
-        <li><a href="#services"   class="nav-link">Services</a></li>
-        <li><a href="#projects"   class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#contact"    class="nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- HERO -->
+<section id="home" class="hero">
+<div class="hero-bg-grid"></div>
+<div class="hero-glow hero-glow-left"></div>
+<div class="hero-glow hero-glow-right"></div>
+<div class="hero-inner container">
+<div class="hero-content reveal-left">
+<div class="hero-text">
+<p class="hero-greeting">Hello, I'm</p>
+<h1 class="hero-name">Tushal <span class="text-gradient">Kumar</span></h1>
+<div class="typewriter-wrap">
+<span class="gt-sym">&gt;</span>
+<span id="typewriter"></span>
+<span class="cursor"></span>
+</div>
+</div>
+<p class="hero-desc">
+Aspiring Machine Learning Engineer with a track record of building predictive
+models and data-driven systems using Python, PyTorch, and SQL. Delivered measurable
+impact analyzing 1,000+ banking records at Faysal Bank Limited. Passionate about
+applying statistical rigor and scalable engineering practices to solve real-world problems.
+</p>
+<div class="hero-cta">
+<a href="TushalKumar_Resume.pdf" id="resumeDownload" download class="btn-primary">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+Download Resume
+</a>
+<a href="#projects" class="btn-secondary smooth-scroll">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+View Projects
+</a>
+<a href="#contact" class="btn-ghost smooth-scroll">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+Contact Me
+</a>
+</div>
+</div>
+<div class="hero-visual reveal-right">
+<div class="hero-orb-glow"></div>
+<div class="orbital orbital-1"></div>
+<div class="orbital orbital-2"></div>
+<div class="portrait-wrap">
+<div class="portrait-ring"></div>
+<div class="portrait-bg"></div>
+<div class="portrait-img">
+<img id="heroPhoto" src="" alt="Tushal Kumar" />
+</div>
+</div>
+</div>
+</div>
+<a href="#about" class="scroll-indicator smooth-scroll">
+<div class="scroll-mouse"><div class="scroll-dot"></div></div>
+<span>Scroll</span>
+</a>
+</section>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-glow hero-glow-left"></div>
-    <div class="hero-glow hero-glow-right"></div>
-    <div class="hero-inner container">
-      <div class="hero-content reveal-left">
-        <div class="hero-text">
-          <p class="hero-greeting">Hello, I'm</p>
-          <h1 class="hero-name">Tushal <span class="text-gradient">Kumar</span></h1>
-          <div class="typewriter-wrap">
-            <span class="gt-sym">&gt;</span>
-            <span id="typewriter"></span>
-            <span class="cursor"></span>
-          </div>
-        </div>
-        <p class="hero-desc">
-          Aspiring Machine Learning Engineer with a track record of building predictive
-          models and data-driven systems using Python, PyTorch, and SQL. Delivered measurable
-          impact analyzing 1,000+ banking records at Faysal Bank Limited. Passionate about
-          applying statistical rigor and scalable engineering practices to solve real-world problems.
-        </p>
-        <div class="hero-cta">
-          <a href="TushalKumar_Resume.pdf" id="resumeDownload" download class="btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Resume
-          </a>
-          <a href="#projects" class="btn-secondary smooth-scroll">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            View Projects
-          </a>
-          <a href="#contact" class="btn-ghost smooth-scroll">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Contact Me
-          </a>
-        </div>
-      </div>
-      <div class="hero-visual reveal-right">
-        <div class="hero-orb-glow"></div>
-        <div class="orbital orbital-1"></div>
-        <div class="orbital orbital-2"></div>
-        <div class="portrait-wrap">
-          <div class="portrait-ring"></div>
-          <div class="portrait-bg"></div>
-          <div class="portrait-img">
-            <img id="heroPhoto" src="" alt="Tushal Kumar" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="#about" class="scroll-indicator smooth-scroll">
-      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-      <span>Scroll</span>
-    </a>
-  </section>
+<!-- ABOUT -->
+<section id="about" class="section">
+<div class="container">
+<div class="section-header reveal-up">
+<div class="eyebrow">About Me</div>
+<h2 class="section-title">Designing Solutions, <span class="text-gradient">Not Just Code</span></h2>
+</div>
+<div class="about-grid">
+<div class="about-left reveal-left">
+<p class="about-para lg">
+I'm a motivated Computer Science student at <strong>Sukkur IBA University</strong>,
+currently based in Karachi, Pakistan. My journey is driven by curiosity for how
+intelligent systems work and how clean, well-engineered software can solve real-world problems.
+</p>
+<p class="about-para">
+I have a strong foundation in programming and software engineering, a growing passion
+for AI and machine learning, and hands-on experience building Java desktop applications
+and GUI tools. I love collaborating with teams, breaking down hard problems, and
+shipping work I'm proud of.
+</p>
+<div class="info-grid">
+<div class="glass info-card">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+<div class="info-label">Location</div>
+<div class="info-val">Karachi, Pakistan</div>
+</div>
+<div class="glass info-card">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+<div class="info-label">Education</div>
+<div class="info-val">BS Computer Science</div>
+</div>
+<div class="glass info-card">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+<div class="info-label">Focus</div>
+<div class="info-val">Software & AI</div>
+</div>
+<div class="glass info-card">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2Z"/><path d="M12 2a10 10 0 0 1 10 10"/><circle cx="12" cy="12" r="6"/><path d="M12 6a6 6 0 0 1 6 6"/></svg>
+<div class="info-label">Learning</div>
+<div class="info-val">ML & DL</div>
+</div>
+</div>
+<div class="stats-row">
+<div class="stat-item">
+<div class="stat-num text-gradient" data-count="10" data-suffix="+">0+</div>
+<div class="stat-label">Projects</div>
+</div>
+<div class="stat-item">
+<div class="stat-num text-gradient" data-count="15" data-suffix="+">0+</div>
+<div class="stat-label">Technologies</div>
+</div>
+<div class="stat-item">
+<div class="stat-num text-gradient">3.38/4</div>
+<div class="stat-label">CGPA</div>
+</div>
+<div class="stat-item">
+<div class="stat-num text-gradient" data-count="4" data-suffix="+">0+</div>
+<div class="stat-label">Years Coding</div>
+</div>
+</div>
+</div>
+<div class="about-right reveal-right">
+<div class="timeline-line"></div>
+<h3 class="timeline-heading">Education Timeline</h3>
+<div class="timeline">
+<div class="tl-item glass">
+<div class="tl-dot"></div>
+<div class="tl-year">2024 – 2028</div>
+<div class="tl-title">BS Computer Science</div>
+<div class="tl-place">Sukkur IBA University</div>
+<div class="tl-note">CGPA 3.38 / 4.0</div>
+</div>
+<div class="tl-item glass">
+<div class="tl-dot"></div>
+<div class="tl-year">2023</div>
+<div class="tl-title">Intermediate</div>
+<div class="tl-place">Larkana Board</div>
+<div class="tl-note">Pre-Medical</div>
+</div>
+<div class="tl-item glass">
+<div class="tl-dot"></div>
+<div class="tl-year">2021</div>
+<div class="tl-title">Matriculation (Science)</div>
+<div class="tl-place">Larkana Board</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <div class="eyebrow">About Me</div>
-        <h2 class="section-title">Designing Solutions, <span class="text-gradient">Not Just Code</span></h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-left reveal-left">
-          <p class="about-para lg">
-            I'm a motivated Computer Science student at <strong>Sukkur IBA University</strong>,
-            currently based in Karachi, Pakistan. My journey is driven by curiosity for how
-            intelligent systems work and how clean, well-engineered software can solve real-world problems.
-          </p>
-          <p class="about-para">
-            I have a strong foundation in programming and software engineering, a growing passion
-            for AI and machine learning, and hands-on experience building Java desktop applications
-            and GUI tools. I love collaborating with teams, breaking down hard problems, and
-            shipping work I'm proud of.
-          </p>
-          <div class="info-grid">
-            <div class="glass info-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <div class="info-label">Location</div>
-              <div class="info-val">Karachi, Pakistan</div>
-            </div>
-            <div class="glass info-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              <div class="info-label">Education</div>
-              <div class="info-val">BS Computer Science</div>
-            </div>
-            <div class="glass info-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              <div class="info-label">Focus</div>
-              <div class="info-val">Software & AI</div>
-            </div>
-            <div class="glass info-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2Z"/><path d="M12 2a10 10 0 0 1 10 10"/><circle cx="12" cy="12" r="6"/><path d="M12 6a6 6 0 0 1 6 6"/></svg>
-              <div class="info-label">Learning</div>
-              <div class="info-val">ML & DL</div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stat-item">
-              <div class="stat-num text-gradient" data-count="10" data-suffix="+">0+</div>
-              <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num text-gradient" data-count="15" data-suffix="+">0+</div>
-              <div class="stat-label">Technologies</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num text-gradient">3.38/4</div>
-              <div class="stat-label">CGPA</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num text-gradient" data-count="4" data-suffix="+">0+</div>
-              <div class="stat-label">Years Coding</div>
-            </div>
-          </div>
-        </div>
-        <div class="about-right reveal-right">
-          <div class="timeline-line"></div>
-          <h3 class="timeline-heading">Education Timeline</h3>
-          <div class="timeline">
-            <div class="tl-item glass">
-              <div class="tl-dot"></div>
-              <div class="tl-year">2024 – 2028</div>
-              <div class="tl-title">BS Computer Science</div>
-              <div class="tl-place">Sukkur IBA University</div>
-              <div class="tl-note">CGPA 3.38 / 4.0</div>
-            </div>
-            <div class="tl-item glass">
-              <div class="tl-dot"></div>
-              <div class="tl-year">2023</div>
-              <div class="tl-title">Intermediate</div>
-              <div class="tl-place">Larkana Board</div>
-              <div class="tl-note">Pre-Medical</div>
-            </div>
-            <div class="tl-item glass">
-              <div class="tl-dot"></div>
-              <div class="tl-year">2021</div>
-              <div class="tl-title">Matriculation (Science)</div>
-              <div class="tl-place">Larkana Board</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- SKILLS -->
+<section id="skills" class="section">
+<div class="container">
+<div class="section-header reveal-up">
+<div class="eyebrow">Skills</div>
+<h2 class="section-title">My <span class="text-gradient">Tech Arsenal</span></h2>
+</div>
+<div class="skills-grid">
+<div class="glass skill-group reveal-up">
+<div class="sg-header">
+<div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+<h3>Languages</h3>
+</div>
+<div class="tag-cloud">
+<span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span>
+<span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">SQL</span>
+</div>
+</div>
+<div class="glass skill-group reveal-up">
+<div class="sg-header">
+<div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
+<h3>Libraries & Frameworks</h3>
+</div>
+<div class="tag-cloud">
+<span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+<span class="tag">PyTorch</span><span class="tag">JavaFX</span><span class="tag">Swing</span>
+<span class="tag">FastAPI</span><span class="tag">PyMongo</span>
+</div>
+</div>
+<div class="glass skill-group reveal-up">
+<div class="sg-header">
+<div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
+<h3>Databases</h3>
+</div>
+<div class="tag-cloud">
+<span class="tag">MySQL</span><span class="tag">MongoDB</span>
+</div>
+</div>
+<div class="glass skill-group reveal-up">
+<div class="sg-header">
+<div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+<h3>Tools & Platforms</h3>
+</div>
+<div class="tag-cloud">
+<span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span>
+<span class="tag">IntelliJ IDEA</span><span class="tag">NetBeans</span>
+<span class="tag">Linux/Ubuntu</span><span class="tag">Windows</span><span class="tag">macOS</span>
+</div>
+</div>
+</div>
+<div class="glass-strong competencies reveal-up">
+<h3 class="comp-title">Core Competencies</h3>
+<div class="comp-grid">
+<div class="comp-item"><div class="comp-row"><span>Object-Oriented Programming</span><span class="comp-pct">90%</span></div><div class="prog-track"><div class="prog-bar" data-w="90"></div></div></div>
+<div class="comp-item"><div class="comp-row"><span>Data Structures & Algorithms</span><span class="comp-pct">80%</span></div><div class="prog-track"><div class="prog-bar" data-w="80"></div></div></div>
+<div class="comp-item"><div class="comp-row"><span>Machine Learning</span><span class="comp-pct">70%</span></div><div class="prog-track"><div class="prog-bar" data-w="70"></div></div></div>
+<div class="comp-item"><div class="comp-row"><span>Database Management</span><span class="comp-pct">78%</span></div><div class="prog-track"><div class="prog-bar" data-w="78"></div></div></div>
+<div class="comp-item"><div class="comp-row"><span>Problem Solving</span><span class="comp-pct">88%</span></div><div class="prog-track"><div class="prog-bar" data-w="88"></div></div></div>
+<div class="comp-item"><div class="comp-row"><span>Version Control</span><span class="comp-pct">85%</span></div><div class="prog-track"><div class="prog-bar" data-w="85"></div></div></div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <div class="eyebrow">Skills</div>
-        <h2 class="section-title">My <span class="text-gradient">Tech Arsenal</span></h2>
-      </div>
-      <div class="skills-grid">
-        <div class="glass skill-group reveal-up">
-          <div class="sg-header">
-            <div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <h3>Languages</h3>
-          </div>
-          <div class="tag-cloud">
-            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span>
-            <span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">SQL</span>
-          </div>
-        </div>
-        <div class="glass skill-group reveal-up">
-          <div class="sg-header">
-            <div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
-            <h3>Libraries & Frameworks</h3>
-          </div>
-          <div class="tag-cloud">
-            <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
-            <span class="tag">PyTorch</span><span class="tag">JavaFX</span><span class="tag">Swing</span>
-            <span class="tag">FastAPI</span><span class="tag">PyMongo</span>
-          </div>
-        </div>
-        <div class="glass skill-group reveal-up">
-          <div class="sg-header">
-            <div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-            <h3>Databases</h3>
-          </div>
-          <div class="tag-cloud">
-            <span class="tag">MySQL</span><span class="tag">MongoDB</span>
-          </div>
-        </div>
-        <div class="glass skill-group reveal-up">
-          <div class="sg-header">
-            <div class="sg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-            <h3>Tools & Platforms</h3>
-          </div>
-          <div class="tag-cloud">
-            <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span>
-            <span class="tag">IntelliJ IDEA</span><span class="tag">NetBeans</span>
-            <span class="tag">Linux/Ubuntu</span><span class="tag">Windows</span><span class="tag">macOS</span>
-          </div>
-        </div>
-      </div>
-      <div class="glass-strong competencies reveal-up">
-        <h3 class="comp-title">Core Competencies</h3>
-        <div class="comp-grid">
-          <div class="comp-item"><div class="comp-row"><span>Object-Oriented Programming</span><span class="comp-pct">90%</span></div><div class="prog-track"><div class="prog-bar" data-w="90"></div></div></div>
-          <div class="comp-item"><div class="comp-row"><span>Data Structures & Algorithms</span><span class="comp-pct">80%</span></div><div class="prog-track"><div class="prog-bar" data-w="80"></div></div></div>
-          <div class="comp-item"><div class="comp-row"><span>Machine Learning</span><span class="comp-pct">70%</span></div><div class="prog-track"><div class="prog-bar" data-w="70"></div></div></div>
-          <div class="comp-item"><div class="comp-row"><span>Database Management</span><span class="comp-pct">78%</span></div><div class="prog-track"><div class="prog-bar" data-w="78"></div></div></div>
-          <div class="comp-item"><div class="comp-row"><span>Problem Solving</span><span class="comp-pct">88%</span></div><div class="prog-track"><div class="prog-bar" data-w="88"></div></div></div>
-          <div class="comp-item"><div class="comp-row"><span>Version Control</span><span class="comp-pct">85%</span></div><div class="prog-track"><div class="prog-bar" data-w="85"></div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- SERVICES -->
+<section id="services" class="section">
+<div class="container">
+<div class="section-header reveal-up">
+<div class="eyebrow">Services</div>
+<h2 class="section-title">What I <span class="text-gradient">Offer</span></h2>
+</div>
+<div class="services-grid">
+<div class="glass service-card reveal-up">
+<div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg></div>
+<h3>Java Desktop Apps</h3>
+<p>Building desktop applications using Java Swing and JavaFX with clean, event-driven architecture.</p>
+<div class="svc-num">01 →</div>
+</div>
+<div class="glass service-card reveal-up">
+<div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg></div>
+<h3>AI & ML Projects</h3>
+<p>Crafting AI systems and machine learning models with Python and PyTorch.</p>
+<div class="svc-num">02 →</div>
+</div>
+<div class="glass service-card reveal-up">
+<div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
+<h3>Database Design</h3>
+<p>Designing and managing relational and NoSQL databases with MySQL and MongoDB.</p>
+<div class="svc-num">03 →</div>
+</div>
+<div class="glass service-card reveal-up">
+<div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+<h3>GUI Development</h3>
+<p>Designing user-friendly graphical interfaces with modern interaction and accessibility.</p>
+<div class="svc-num">04 →</div>
+</div>
+<div class="glass service-card reveal-up">
+<div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
+<h3>Academic Software</h3>
+<p>Building software solutions for educational, research, and academic project needs.</p>
+<div class="svc-num">05 →</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <div class="eyebrow">Services</div>
-        <h2 class="section-title">What I <span class="text-gradient">Offer</span></h2>
-      </div>
-      <div class="services-grid">
-        <div class="glass service-card reveal-up">
-          <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg></div>
-          <h3>Java Desktop Apps</h3>
-          <p>Building desktop applications using Java Swing and JavaFX with clean, event-driven architecture.</p>
-          <div class="svc-num">01 →</div>
-        </div>
-        <div class="glass service-card reveal-up">
-          <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg></div>
-          <h3>AI & ML Projects</h3>
-          <p>Crafting AI systems and machine learning models with Python and PyTorch.</p>
-          <div class="svc-num">02 →</div>
-        </div>
-        <div class="glass service-card reveal-up">
-          <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-          <h3>Database Design</h3>
-          <p>Designing and managing relational and NoSQL databases with MySQL and MongoDB.</p>
-          <div class="svc-num">03 →</div>
-        </div>
-        <div class="glass service-card reveal-up">
-          <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
-          <h3>GUI Development</h3>
-          <p>Designing user-friendly graphical interfaces with modern interaction and accessibility.</p>
-          <div class="svc-num">04 →</div>
-        </div>
-        <div class="glass service-card reveal-up">
-          <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
-          <h3>Academic Software</h3>
-          <p>Building software solutions for educational, research, and academic project needs.</p>
-          <div class="svc-num">05 →</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+<div class="container">
+<div class="section-header reveal-up">
+<div class="eyebrow">Portfolio</div>
+<h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+</div>
+<div class="filter-row">
+<button class="filter-btn active" data-filter="All">All</button>
+<button class="filter-btn" data-filter="Java">Java</button>
+<button class="filter-btn" data-filter="C++">C++</button>
+<button class="filter-btn" data-filter="AI">AI</button>
+</div>
+<div class="projects-grid" id="projectsGrid">
+<article class="glass project-card" data-cat="Java">
+<div class="proj-img"><img src="https://i.postimg.cc/Mp8VBpLr/photo-1610484826967-09c5720778c7.png" alt="Java Quiz Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<div class="proj-body">
+<h3>Java Quiz Application</h3>
+<p>A GUI-based quiz system using Java Swing with multiple-choice questions, scoring, and event-driven flow.</p>
+<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span><span class="tag sm">OOP</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/Java_Quiz_Application" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="C++">
+<div class="proj-img"><img src="https://i.postimg.cc/mDqmM1KS/photo-1683290844875-0eee4089069a.png" alt="Hotel Management System" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">C++</div></div>
+<div class="proj-body">
+<h3>Hotel Management System</h3>
+<p>C++ application for room booking, billing, and customer records using OOP and file handling.</p>
+<div class="proj-tags"><span class="tag sm">C++</span><span class="tag sm">OOP</span><span class="tag sm">File I/O</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/HMS_PROJECT.cpp" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="Java">
+<div class="proj-img"><img src="https://i.postimg.cc/4dr1nkhv/photo-1484480974693-6ca0a78fb36b.png" alt="To-Do List Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<div class="proj-body">
+<h3>To-Do List Application</h3>
+<p>JavaFX task manager supporting task creation, updating, and deletion with a clean UI.</p>
+<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">JavaFX</span><span class="tag sm">GUI</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/COOP/blob/main/To_Do_List_Application.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="AI">
+<div class="proj-img"><img src="https://i.postimg.cc/cJzR5yhX/photo-1653353436174-a8e724190fd3.png" alt="Fire Alarm System" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">AI</div></div>
+<div class="proj-body">
+<h3>Fire Alarm System</h3>
+<p>AI reflex agent in Python monitoring temperature and smoke levels to trigger automated alarms.</p>
+<div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Reflex Agent</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Fire%20alarm%20system.py" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="Java">
+<div class="proj-img"><img src="https://i.postimg.cc/d0hdCNF2/photo-1571952924075-5f11bad74738.png" alt="Currency Converter" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<div class="proj-body">
+<h3>Currency Converter</h3>
+<p>GUI-based Java app with multi-currency conversion and clean interaction patterns.</p>
+<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span><span class="tag sm">GUI</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Currencyconverter.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="Java">
+<div class="proj-img"><img src="https://i.postimg.cc/cCS8Vsnf/photo-1635372722656-389f87a941b7.png" alt="Calculator GUI" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<div class="proj-body">
+<h3>Calculator (GUI)</h3>
+<p>Java desktop calculator implementing arithmetic operations with an intuitive interface.</p>
+<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Calculaor.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="AI">
+<div class="proj-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="AI Restaurant Reservation Assistant" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">AI</div></div>
+<div class="proj-body">
+<h3>AI Restaurant Reservation Assistant</h3>
+<p>A Python command-line chatbot that books restaurant tables using rule-based AI — finite state machine, full input validation, availability checking, persistent JSON storage, and 31 automated tests.</p>
+<div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Rule-Based</span><span class="tag sm">FSM</span><span class="tag sm">JSON</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/AI-Restaurant-Reservation-Assistant" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+</div>
+</div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <div class="eyebrow">Portfolio</div>
-        <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
-      </div>
-      <div class="filter-row">
-        <button class="filter-btn active" data-filter="All">All</button>
-        <button class="filter-btn" data-filter="Java">Java</button>
-        <button class="filter-btn" data-filter="C++">C++</button>
-        <button class="filter-btn" data-filter="AI">AI</button>
-      </div>
-      <div class="projects-grid" id="projectsGrid">
-        <article class="glass project-card" data-cat="Java">
-          <div class="proj-img"><img src="https://i.postimg.cc/Mp8VBpLr/photo-1610484826967-09c5720778c7.png" alt="Java Quiz Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
-          <div class="proj-body">
-            <h3>Java Quiz Application</h3>
-            <p>A GUI-based quiz system using Java Swing with multiple-choice questions, scoring, and event-driven flow.</p>
-            <div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span><span class="tag sm">OOP</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/Java_Quiz_Application" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-        <article class="glass project-card" data-cat="C++">
-          <div class="proj-img"><img src="https://i.postimg.cc/mDqmM1KS/photo-1683290844875-0eee4089069a.png" alt="Hotel Management System" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">C++</div></div>
-          <div class="proj-body">
-            <h3>Hotel Management System</h3>
-            <p>C++ application for room booking, billing, and customer records using OOP and file handling.</p>
-            <div class="proj-tags"><span class="tag sm">C++</span><span class="tag sm">OOP</span><span class="tag sm">File I/O</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/HMS_PROJECT.cpp" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-        <article class="glass project-card" data-cat="Java">
-          <div class="proj-img"><img src="https://i.postimg.cc/4dr1nkhv/photo-1484480974693-6ca0a78fb36b.png" alt="To-Do List Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
-          <div class="proj-body">
-            <h3>To-Do List Application</h3>
-            <p>JavaFX task manager supporting task creation, updating, and deletion with a clean UI.</p>
-            <div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">JavaFX</span><span class="tag sm">GUI</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/COOP/blob/main/To_Do_List_Application.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-        <article class="glass project-card" data-cat="AI">
-          <div class="proj-img"><img src="https://i.postimg.cc/cJzR5yhX/photo-1653353436174-a8e724190fd3.png" alt="Fire Alarm System" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">AI</div></div>
-          <div class="proj-body">
-            <h3>Fire Alarm System</h3>
-            <p>AI reflex agent in Python monitoring temperature and smoke levels to trigger automated alarms.</p>
-            <div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Reflex Agent</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Fire%20alarm%20system.py" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-        <article class="glass project-card" data-cat="Java">
-          <div class="proj-img"><img src="https://i.postimg.cc/d0hdCNF2/photo-1571952924075-5f11bad74738.png" alt="Currency Converter" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
-          <div class="proj-body">
-            <h3>Currency Converter</h3>
-            <p>GUI-based Java app with multi-currency conversion and clean interaction patterns.</p>
-            <div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span><span class="tag sm">GUI</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Currencyconverter.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-        <article class="glass project-card" data-cat="Java">
-          <div class="proj-img"><img src="https://i.postimg.cc/cCS8Vsnf/photo-1635372722656-389f87a941b7.png" alt="Calculator GUI" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
-          <div class="proj-body">
-            <h3>Calculator (GUI)</h3>
-            <p>Java desktop calculator implementing arithmetic operations with an intuitive interface.</p>
-            <div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Calculaor.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-        <article class="glass project-card" data-cat="AI">
-          <div class="proj-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="AI Restaurant Reservation Assistant" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">AI</div></div>
-          <div class="proj-body">
-            <h3>AI Restaurant Reservation Assistant</h3>
-            <p>A Python command-line chatbot that books restaurant tables using rule-based AI — finite state machine, full input validation, availability checking, persistent JSON storage, and 31 automated tests.</p>
-            <div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Rule-Based</span><span class="tag sm">FSM</span><span class="tag sm">JSON</span></div>
-            <div class="proj-links"><a href="https://github.com/TushalKumarDawani/AI-Restaurant-Reservation-Assistant" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+<div class="container">
+<div class="section-header reveal-up">
+<div class="eyebrow">Experience</div>
+<h2 class="section-title">My <span class="text-gradient">Journey</span></h2>
+</div>
+<div class="exp-wrap">
+<div class="exp-line"></div>
+<div class="exp-item exp-item--highlight glass reveal-left">
+<div class="exp-dot exp-dot--active"></div>
+<div class="exp-year">
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+Jun 8, 2026 – Jul 17, 2026 &nbsp;·&nbsp; 6 Weeks
+<span class="exp-badge">✓ Certified</span>
+</div>
+<h3>Software / IT Intern</h3>
+<div class="exp-place">Faysal Bank Limited &nbsp;·&nbsp; Branch Distribution Department, Branch 3479</div>
+<div class="exp-meta-grid">
+<div class="exp-meta-cell"><div class="exp-meta-label">Supervisors</div><div class="exp-meta-val">Mr. Nisar Ali &amp; Mr. Siraj U Din</div></div>
+<div class="exp-meta-cell"><div class="exp-meta-label">Department</div><div class="exp-meta-val">Branch Distribution</div></div>
+<div class="exp-meta-cell"><div class="exp-meta-label">Duration</div><div class="exp-meta-val">6 Weeks</div></div>
+<div class="exp-meta-cell"><div class="exp-meta-label">Certified by</div><div class="exp-meta-val">Asad Hameed, HR Head</div></div>
+</div>
+<ul class="exp-points">
+<li>Analyzed <strong>1,000+ internal banking records</strong> using SQL and Excel to identify operational trends and support data-driven decision-making within the IT team</li>
+<li>Cleaned, validated, and prepared transactional datasets for weekly branch reports — applying <strong>data analysis and visualization</strong> techniques in a live regulated environment</li>
+<li>Queried and maintained <strong>relational databases</strong> ensuring accuracy and consistency of customer account, transaction, and card issuance records</li>
+<li>Observed a <strong>Java-based statement generation application</strong> querying a backend database to produce real-time customer account statements on demand</li>
+<li>Applied <strong>Information Security</strong> best practices: role-based access control, data classification, and Declaration of Confidentiality in a certified, audited financial environment</li>
+</ul>
+<div class="exp-tags">
+<span class="tag sm">SQL</span><span class="tag sm">Microsoft Excel</span><span class="tag sm">Data Analysis</span>
+<span class="tag sm">Data Visualization</span><span class="tag sm">Core Banking System</span><span class="tag sm">Information Security</span>
+</div>
+</div>
+<div class="exp-item glass reveal-left">
+<div class="exp-dot"></div>
+<div class="exp-year">
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+2025 – Present
+</div>
+<h3>Independent Software Projects</h3>
+<div class="exp-place">Self-Driven &nbsp;·&nbsp; Personal Development</div>
+<ul class="exp-points">
+<li>Designed and shipped Java desktop applications using Swing and JavaFX — quiz systems, to-do managers, currency converters and calculators — applying OOP and event-driven architecture</li>
+<li>Built an AI Fire Alarm System in Python — a goal-based reflex agent that monitors environmental conditions and triggers automated alarms</li>
+<li>Maintained clean Git workflows across all projects with structured commits and version-controlled source code published on GitHub</li>
+<li>Studied PyTorch and ML fundamentals through self-driven experimentation</li>
+</ul>
+</div>
+<div class="achievement glass-strong reveal-up">
+<div class="ach-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+</div>
+<div class="ach-eyebrow">Achievement</div>
+<h3>Prime Minister Laptop Award</h3>
+<p>Prime Minister Youth Scheme · 2025–26 · Sukkur IBA University</p>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <div class="eyebrow">Experience</div>
-        <h2 class="section-title">My <span class="text-gradient">Journey</span></h2>
-      </div>
-      <div class="exp-wrap">
-        <div class="exp-line"></div>
-        <div class="exp-item exp-item--highlight glass reveal-left">
-          <div class="exp-dot exp-dot--active"></div>
-          <div class="exp-year">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            Jun 8, 2026 – Jul 17, 2026 &nbsp;·&nbsp; 6 Weeks
-            <span class="exp-badge">✓ Certified</span>
-          </div>
-          <h3>Software / IT Intern</h3>
-          <div class="exp-place">Faysal Bank Limited &nbsp;·&nbsp; Branch Distribution Department, Branch 3479</div>
-          <div class="exp-meta-grid">
-            <div class="exp-meta-cell"><div class="exp-meta-label">Supervisors</div><div class="exp-meta-val">Mr. Nisar Ali &amp; Mr. Siraj U Din</div></div>
-            <div class="exp-meta-cell"><div class="exp-meta-label">Department</div><div class="exp-meta-val">Branch Distribution</div></div>
-            <div class="exp-meta-cell"><div class="exp-meta-label">Duration</div><div class="exp-meta-val">6 Weeks</div></div>
-            <div class="exp-meta-cell"><div class="exp-meta-label">Certified by</div><div class="exp-meta-val">Asad Hameed, HR Head</div></div>
-          </div>
-          <ul class="exp-points">
-            <li>Analyzed <strong>1,000+ internal banking records</strong> using SQL and Excel to identify operational trends and support data-driven decision-making within the IT team</li>
-            <li>Cleaned, validated, and prepared transactional datasets for weekly branch reports — applying <strong>data analysis and visualization</strong> techniques in a live regulated environment</li>
-            <li>Queried and maintained <strong>relational databases</strong> ensuring accuracy and consistency of customer account, transaction, and card issuance records</li>
-            <li>Observed a <strong>Java-based statement generation application</strong> querying a backend database to produce real-time customer account statements on demand</li>
-            <li>Applied <strong>Information Security</strong> best practices: role-based access control, data classification, and Declaration of Confidentiality in a certified, audited financial environment</li>
-          </ul>
-          <div class="exp-tags">
-            <span class="tag sm">SQL</span><span class="tag sm">Microsoft Excel</span><span class="tag sm">Data Analysis</span>
-            <span class="tag sm">Data Visualization</span><span class="tag sm">Core Banking System</span><span class="tag sm">Information Security</span>
-          </div>
-        </div>
-        <div class="exp-item glass reveal-left">
-          <div class="exp-dot"></div>
-          <div class="exp-year">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            2025 – Present
-          </div>
-          <h3>Independent Software Projects</h3>
-          <div class="exp-place">Self-Driven &nbsp;·&nbsp; Personal Development</div>
-          <ul class="exp-points">
-            <li>Designed and shipped Java desktop applications using Swing and JavaFX — quiz systems, to-do managers, currency converters and calculators — applying OOP and event-driven architecture</li>
-            <li>Built an AI Fire Alarm System in Python — a goal-based reflex agent that monitors environmental conditions and triggers automated alarms</li>
-            <li>Maintained clean Git workflows across all projects with structured commits and version-controlled source code published on GitHub</li>
-            <li>Studied PyTorch and ML fundamentals through self-driven experimentation</li>
-          </ul>
-        </div>
-        <div class="exp-item glass reveal-right">
-          <div class="exp-dot"></div>
-          <div class="exp-year">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            Aug 2024 – May 2028
-          </div>
-          <h3>Bachelor of Science in Computer Science</h3>
-          <div class="exp-place">Sukkur IBA University &nbsp;·&nbsp; Sukkur, Pakistan &nbsp;·&nbsp; CGPA 3.38 / 4.0</div>
-          <ul class="exp-points">
-            <li>Completed core CS coursework: OOP, Data Structures &amp; Algorithms, Database Management Systems, Computer Networks, Software Engineering and Information Security</li>
-            <li>Collaborated on academic team projects applying structured problem-solving, version control, and software engineering practices</li>
-            <li>Performed data analysis and visualization using NumPy, Pandas and Matplotlib on real-world datasets</li>
-            <li>Applied database operations using MySQL and MongoDB in coursework and project work</li>
-          </ul>
-        </div>
-        <div class="achievement glass-strong reveal-up">
-          <div class="ach-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-          </div>
-          <div class="ach-eyebrow">Achievement</div>
-          <h3>Prime Minister Laptop Award</h3>
-          <p>Prime Minister Youth Scheme · 2025–26 · Sukkur IBA University</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- CONTACT -->
+<section id="contact" class="section">
+<div class="container">
+<div class="section-header reveal-up">
+<div class="eyebrow">Contact</div>
+<h2 class="section-title">Let's <span class="text-gradient">Work Together</span></h2>
+</div>
+<div class="contact-grid">
+<div class="contact-left reveal-left">
+<p class="contact-intro">Got a project, an opportunity, or just want to say hi? I'd love to hear from you. Fill in the form and it'll land directly in my inbox.</p>
+<div class="contact-items">
+<a href="mailto:tushalkumardawani.official111@gmail.com" class="glass contact-item">
+<div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+<div><div class="ci-label">Email</div><div class="ci-val">tushalkumardawani.official111@gmail.com</div></div>
+</a>
+<div class="glass contact-item">
+<div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+<div><div class="ci-label">Location</div><div class="ci-val">Karachi, Pakistan</div></div>
+</div>
+</div>
+<div class="social-row">
+<a href="https://github.com/TushalKumarDawani" target="_blank" rel="noreferrer" class="glass social-btn" title="GitHub">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+</a>
+<a href="https://www.linkedin.com/in/tushal-kumar-dawani-70bb4236a/" target="_blank" rel="noreferrer" class="glass social-btn" title="LinkedIn">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+</a>
+<a href="https://medium.com/@tushalkumardawani.official111" target="_blank" rel="noreferrer" class="glass social-btn" title="Medium">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+</a>
+</div>
+</div>
+<div class="glass-strong contact-form-wrap reveal-right">
+<form id="contactForm" action="https://formspree.io/f/xojbpzrw" method="POST" class="contact-form">
+<div class="form-group"><label for="cf-name">Name</label><input id="cf-name" type="text" name="name" required placeholder="Your name" /></div>
+<div class="form-group"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" required placeholder="you@example.com" /></div>
+<div class="form-group"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="5" required placeholder="Tell me about your project..."></textarea></div>
+<button type="submit" class="btn-send" id="sendBtn">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+Send Message
+</button>
+<p id="formMsg" class="form-feedback" aria-live="polite"></p>
+</form>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <div class="eyebrow">Contact</div>
-        <h2 class="section-title">Let's <span class="text-gradient">Work Together</span></h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-left reveal-left">
-          <p class="contact-intro">Got a project, an opportunity, or just want to say hi? I'd love to hear from you. Fill in the form and it'll land directly in my inbox.</p>
-          <div class="contact-items">
-            <a href="mailto:tushalkumardawani.official111@gmail.com" class="glass contact-item">
-              <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
-              <div><div class="ci-label">Email</div><div class="ci-val">tushalkumardawani.official111@gmail.com</div></div>
-            </a>
-            <div class="glass contact-item">
-              <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-              <div><div class="ci-label">Location</div><div class="ci-val">Karachi, Pakistan</div></div>
-            </div>
-          </div>
-          <div class="social-row">
-            <a href="https://github.com/TushalKumarDawani" target="_blank" rel="noreferrer" class="glass social-btn" title="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/tushal-kumar-dawani-70bb4236a/" target="_blank" rel="noreferrer" class="glass social-btn" title="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="https://medium.com/@tushalkumardawani.official111" target="_blank" rel="noreferrer" class="glass social-btn" title="Medium">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="glass-strong contact-form-wrap reveal-right">
-          <form id="contactForm" action="https://formspree.io/f/xojbpzrw" method="POST" class="contact-form">
-            <div class="form-group"><label for="cf-name">Name</label><input id="cf-name" type="text" name="name" required placeholder="Your name" /></div>
-            <div class="form-group"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" required placeholder="you@example.com" /></div>
-            <div class="form-group"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="5" required placeholder="Tell me about your project..."></textarea></div>
-            <button type="submit" class="btn-send" id="sendBtn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              Send Message
-            </button>
-            <p id="formMsg" class="form-feedback" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container footer-inner">
+<div class="footer-copy">© <span id="yr"></span> Tushal Kumar Dawani. Crafted with passion.</div>
+</div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-copy">© <span id="yr"></span> Tushal Kumar Dawani. Crafted with passion.</div>
-    </div>
-  </footer>
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-  </button>
-
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
