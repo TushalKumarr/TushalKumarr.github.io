@@ -11,6 +11,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
 <link rel="stylesheet" href="style.css" />
+<style>
+/* ===== Experience section redesign (v2) ===== */
+.exp-wrap--v2{display:flex;flex-direction:column;gap:1.5rem;max-width:820px;margin:0 auto}
+.exp-card{border-radius:16px;padding:1.75rem 2rem;}
+.exp-card-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.exp-icon-circle{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.exp-icon-circle--blue{background:rgba(59,130,246,0.15);color:#60a5fa}
+.exp-icon-circle--purple{background:rgba(124,109,250,0.15);color:#a78bfa}
+.exp-icon-circle--gold{background:rgba(234,179,8,0.15);color:#facc15}
+.exp-card-headtext h3{font-size:1.15rem;font-weight:700;margin:0 0 0.2rem 0;line-height:1.3}
+.exp-role{color:#60a5fa;font-size:0.92rem;font-weight:500;margin-bottom:0.15rem}
+.exp-card--achievement .exp-role{color:#facc15}
+.exp-date{color:var(--text-muted,#94a3b8);font-size:0.82rem}
+.exp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.7rem}
+.exp-list li{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.92rem;line-height:1.55;color:var(--text-secondary,#cbd5e1)}
+.exp-list-icon{flex-shrink:0;color:#60a5fa;font-size:0.8rem;margin-top:0.2rem}
+.exp-card--achievement .exp-card-head{margin-bottom:0}
+@media (max-width:640px){
+.exp-card{padding:1.25rem 1.35rem}
+.exp-card-head{gap:0.75rem}
+.exp-icon-circle{width:38px;height:38px}
+}
+</style>
 </head>
 <body>
 <!-- NAVBAR -->
@@ -317,13 +340,13 @@ shipping work I'm proud of.
 <button class="filter-btn" data-filter="AI">AI</button>
 </div>
 <div class="projects-grid" id="projectsGrid">
-<article class="glass project-card" data-cat="Java">
-<div class="proj-img"><img src="https://i.postimg.cc/Mp8VBpLr/photo-1610484826967-09c5720778c7.png" alt="Java Quiz Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<article class="glass project-card" data-cat="AI">
+<div class="proj-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="AI Restaurant Reservation Assistant" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">AI</div></div>
 <div class="proj-body">
-<h3>Java Quiz Application</h3>
-<p>A GUI-based quiz system using Java Swing with multiple-choice questions, scoring, and event-driven flow.</p>
-<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span><span class="tag sm">OOP</span></div>
-<div class="proj-links"><a href="https://github.com/TushalKumarDawani/Java_Quiz_Application" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+<h3>AI Restaurant Reservation Assistant</h3>
+<p>A Python command-line chatbot that books restaurant tables using rule-based AI — finite state machine, full input validation, availability checking, persistent JSON storage, and 31 automated tests.</p>
+<div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Rule-Based</span><span class="tag sm">FSM</span><span class="tag sm">JSON</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/AI-Restaurant-Reservation-Assistant" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
 </div>
 </article>
 <article class="glass project-card" data-cat="C++">
@@ -336,12 +359,12 @@ shipping work I'm proud of.
 </div>
 </article>
 <article class="glass project-card" data-cat="Java">
-<div class="proj-img"><img src="https://i.postimg.cc/4dr1nkhv/photo-1484480974693-6ca0a78fb36b.png" alt="To-Do List Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<div class="proj-img"><img src="https://i.postimg.cc/Mp8VBpLr/photo-1610484826967-09c5720778c7.png" alt="Java Quiz Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
 <div class="proj-body">
-<h3>To-Do List Application</h3>
-<p>JavaFX task manager supporting task creation, updating, and deletion with a clean UI.</p>
-<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">JavaFX</span><span class="tag sm">GUI</span></div>
-<div class="proj-links"><a href="https://github.com/TushalKumarDawani/COOP/blob/main/To_Do_List_Application.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+<h3>Java Quiz Application</h3>
+<p>A GUI-based quiz system using Java Swing with multiple-choice questions, scoring, and event-driven flow.</p>
+<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">Swing</span><span class="tag sm">OOP</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/Java_Quiz_Application" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
 </div>
 </article>
 <article class="glass project-card" data-cat="AI">
@@ -351,6 +374,15 @@ shipping work I'm proud of.
 <p>AI reflex agent in Python monitoring temperature and smoke levels to trigger automated alarms.</p>
 <div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Reflex Agent</span></div>
 <div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Fire%20alarm%20system.py" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
+</div>
+</article>
+<article class="glass project-card" data-cat="Java">
+<div class="proj-img"><img src="https://i.postimg.cc/4dr1nkhv/photo-1484480974693-6ca0a78fb36b.png" alt="To-Do List Application" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">Java</div></div>
+<div class="proj-body">
+<h3>To-Do List Application</h3>
+<p>JavaFX task manager supporting task creation, updating, and deletion with a clean UI.</p>
+<div class="proj-tags"><span class="tag sm">Java</span><span class="tag sm">JavaFX</span><span class="tag sm">GUI</span></div>
+<div class="proj-links"><a href="https://github.com/TushalKumarDawani/COOP/blob/main/To_Do_List_Application.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
 </div>
 </article>
 <article class="glass project-card" data-cat="Java">
@@ -371,15 +403,6 @@ shipping work I'm proud of.
 <div class="proj-links"><a href="https://github.com/TushalKumarDawani/C-OOP/blob/main/Calculaor.java" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
 </div>
 </article>
-<article class="glass project-card" data-cat="AI">
-<div class="proj-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="AI Restaurant Reservation Assistant" loading="lazy" /><div class="proj-overlay"></div><div class="proj-cat">AI</div></div>
-<div class="proj-body">
-<h3>AI Restaurant Reservation Assistant</h3>
-<p>A Python command-line chatbot that books restaurant tables using rule-based AI — finite state machine, full input validation, availability checking, persistent JSON storage, and 31 automated tests.</p>
-<div class="proj-tags"><span class="tag sm">Python</span><span class="tag sm">AI</span><span class="tag sm">Rule-Based</span><span class="tag sm">FSM</span><span class="tag sm">JSON</span></div>
-<div class="proj-links"><a href="https://github.com/TushalKumarDawani/AI-Restaurant-Reservation-Assistant" target="_blank" rel="noreferrer" class="proj-link"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></div>
-</div>
-</article>
 </div>
 </div>
 </section>
@@ -391,57 +414,55 @@ shipping work I'm proud of.
 <div class="eyebrow">Experience</div>
 <h2 class="section-title">My <span class="text-gradient">Journey</span></h2>
 </div>
-<div class="exp-wrap">
-<div class="exp-line"></div>
-<div class="exp-item exp-item--highlight glass reveal-left">
-<div class="exp-dot exp-dot--active"></div>
-<div class="exp-year">
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-Jun 8, 2026 – Jul 17, 2026 &nbsp;·&nbsp; 6 Weeks
-<span class="exp-badge">✓ Certified</span>
+<div class="exp-wrap exp-wrap--v2">
+<div class="exp-card glass reveal-left">
+<div class="exp-card-head">
+<div class="exp-icon-circle exp-icon-circle--blue">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
 </div>
-<h3>Software / IT Intern</h3>
-<div class="exp-place">Faysal Bank Limited &nbsp;·&nbsp; Branch Distribution Department, Branch 3479</div>
-<div class="exp-meta-grid">
-<div class="exp-meta-cell"><div class="exp-meta-label">Supervisors</div><div class="exp-meta-val">Mr. Nisar Ali &amp; Mr. Siraj U Din</div></div>
-<div class="exp-meta-cell"><div class="exp-meta-label">Department</div><div class="exp-meta-val">Branch Distribution</div></div>
-<div class="exp-meta-cell"><div class="exp-meta-label">Duration</div><div class="exp-meta-val">6 Weeks</div></div>
-<div class="exp-meta-cell"><div class="exp-meta-label">Certified by</div><div class="exp-meta-val">Asad Hameed, HR Head</div></div>
+<div class="exp-card-headtext">
+<h3>Faysal Bank Limited</h3>
+<div class="exp-role">Software / IT Intern</div>
+<div class="exp-date">June 2026 – July 2026</div>
 </div>
-<ul class="exp-points">
-<li>Analyzed <strong>1,000+ internal banking records</strong> using SQL and Excel to identify operational trends and support data-driven decision-making within the IT team</li>
-<li>Cleaned, validated, and prepared transactional datasets for weekly branch reports — applying <strong>data analysis and visualization</strong> techniques in a live regulated environment</li>
-<li>Queried and maintained <strong>relational databases</strong> ensuring accuracy and consistency of customer account, transaction, and card issuance records</li>
-<li>Observed a <strong>Java-based statement generation application</strong> querying a backend database to produce real-time customer account statements on demand</li>
-<li>Applied <strong>Information Security</strong> best practices: role-based access control, data classification, and Declaration of Confidentiality in a certified, audited financial environment</li>
+</div>
+<ul class="exp-list">
+<li><span class="exp-list-icon">✓</span>Analyzed 1,000+ internal banking records using SQL and Excel to identify operational trends and support data-driven decision-making</li>
+<li><span class="exp-list-icon">✓</span>Cleaned, validated, and prepared transactional datasets for weekly branch reports</li>
+<li><span class="exp-list-icon">✓</span>Applied data analysis and visualization techniques in a live, regulated environment</li>
+<li><span class="exp-list-icon">✓</span>Queried and maintained relational databases for customer account, transaction, and card issuance records</li>
+<li><span class="exp-list-icon">✓</span>Observed a Java-based statement generation application querying a backend database to produce real-time customer account statements</li>
+<li><span class="exp-list-icon">✓</span>Applied information security practices including role-based access control, data classification, and confidentiality requirements</li>
 </ul>
-<div class="exp-tags">
-<span class="tag sm">SQL</span><span class="tag sm">Microsoft Excel</span><span class="tag sm">Data Analysis</span>
-<span class="tag sm">Data Visualization</span><span class="tag sm">Core Banking System</span><span class="tag sm">Information Security</span>
 </div>
+<div class="exp-card glass reveal-left">
+<div class="exp-card-head">
+<div class="exp-icon-circle exp-icon-circle--purple">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
 </div>
-<div class="exp-item glass reveal-left">
-<div class="exp-dot"></div>
-<div class="exp-year">
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-2025 – Present
-</div>
+<div class="exp-card-headtext">
 <h3>Independent Software Projects</h3>
-<div class="exp-place">Self-Driven &nbsp;·&nbsp; Personal Development</div>
-<ul class="exp-points">
-<li>Designed and shipped Java desktop applications using Swing and JavaFX — quiz systems, to-do managers, currency converters and calculators — applying OOP and event-driven architecture</li>
-<li>Built an AI Fire Alarm System in Python — a goal-based reflex agent that monitors environmental conditions and triggers automated alarms</li>
-<li>Maintained clean Git workflows across all projects with structured commits and version-controlled source code published on GitHub</li>
-<li>Studied PyTorch and ML fundamentals through self-driven experimentation</li>
+<div class="exp-role">Self-Driven · Personal Development</div>
+<div class="exp-date">2025 – Present</div>
+</div>
+</div>
+<ul class="exp-list">
+<li><span class="exp-list-icon">✓</span>Designed and shipped Java desktop applications — quiz systems, to-do managers, currency converters and calculators — applying OOP and event-driven architecture</li>
+<li><span class="exp-list-icon">✓</span>Built an AI Fire Alarm System in Python, a goal-based reflex agent that monitors environmental conditions and triggers automated alarms</li>
+<li><span class="exp-list-icon">✓</span>Maintained clean Git workflows across all projects with structured commits and version-controlled source code on GitHub</li>
+<li><span class="exp-list-icon">✓</span>Studied PyTorch and ML fundamentals through self-driven experimentation</li>
 </ul>
 </div>
-<div class="achievement glass-strong reveal-up">
-<div class="ach-icon">
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+<div class="exp-card glass-strong reveal-up exp-card--achievement">
+<div class="exp-card-head">
+<div class="exp-icon-circle exp-icon-circle--gold">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
 </div>
-<div class="ach-eyebrow">Achievement</div>
+<div class="exp-card-headtext">
 <h3>Prime Minister Laptop Award</h3>
-<p>Prime Minister Youth Scheme · 2025–26 · Sukkur IBA University</p>
+<div class="exp-role">Prime Minister Youth Scheme</div>
+<div class="exp-date">2025 – 26 · Sukkur IBA University</div>
+</div>
 </div>
 </div>
 </div>
