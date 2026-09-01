@@ -17,17 +17,20 @@
 .exp-card{border-radius:16px;padding:1.75rem 2rem;}
 .exp-card-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
 .exp-icon-circle{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.exp-icon-circle--blue{background:rgba(59,130,246,0.15);color:#60a5fa}
-.exp-icon-circle--purple{background:rgba(124,109,250,0.15);color:#a78bfa}
-.exp-icon-circle--gold{background:rgba(234,179,8,0.15);color:#facc15}
-.exp-card-headtext h3{font-size:1.15rem;font-weight:700;margin:0 0 0.2rem 0;line-height:1.3}
-.exp-role{color:#60a5fa;font-size:0.92rem;font-weight:500;margin-bottom:0.15rem}
-.exp-card--achievement .exp-role{color:#facc15}
-.exp-date{color:var(--text-muted,#94a3b8);font-size:0.82rem}
+.exp-icon-circle--blue{background:rgba(59,130,246,0.15);color:#2563eb}
+.exp-icon-circle--purple{background:rgba(124,109,250,0.15);color:#7c3aed}
+.exp-card-headtext h3{font-size:1.15rem;font-weight:700;margin:0 0 0.2rem 0;line-height:1.3;color:#e2e8f0}
+.exp-role{color:#3b82f6;font-size:0.92rem;font-weight:600;margin-bottom:0.15rem}
+.exp-date{color:#94a3b8;font-size:0.82rem;font-weight:500}
 .exp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.7rem}
-.exp-list li{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.92rem;line-height:1.55;color:var(--text-secondary,#cbd5e1)}
-.exp-list-icon{flex-shrink:0;color:#60a5fa;font-size:0.8rem;margin-top:0.2rem}
-.exp-card--achievement .exp-card-head{margin-bottom:0}
+.exp-list li{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.92rem;line-height:1.55;color:#e2e8f0}
+.exp-list-icon{flex-shrink:0;color:#3b82f6;font-size:0.8rem;margin-top:0.2rem;font-weight:700}
+html[data-theme="light"] .exp-card-headtext h3{color:#0f172a}
+html[data-theme="light"] .exp-list li{color:#1e293b}
+html[data-theme="light"] .exp-date{color:#475569}
+html[data-theme="light"] .exp-role{color:#1d4ed8}
+html[data-theme="light"] .exp-icon-circle--blue{background:rgba(37,99,235,0.12);color:#1d4ed8}
+html[data-theme="light"] .exp-icon-circle--purple{background:rgba(124,58,237,0.12);color:#6d28d9}
 @media (max-width:640px){
 .exp-card{padding:1.25rem 1.35rem}
 .exp-card-head{gap:0.75rem}
@@ -453,17 +456,13 @@ shipping work I'm proud of.
 <li><span class="exp-list-icon">✓</span>Studied PyTorch and ML fundamentals through self-driven experimentation</li>
 </ul>
 </div>
-<div class="exp-card glass-strong reveal-up exp-card--achievement">
-<div class="exp-card-head">
-<div class="exp-icon-circle exp-icon-circle--gold">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+<div class="achievement glass-strong reveal-up">
+<div class="ach-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
 </div>
-<div class="exp-card-headtext">
+<div class="ach-eyebrow">Achievement</div>
 <h3>Prime Minister Laptop Award</h3>
-<div class="exp-role">Prime Minister Youth Scheme</div>
-<div class="exp-date">2025 – 26 · Sukkur IBA University</div>
-</div>
-</div>
+<p>Prime Minister Youth Scheme · 2025–26 · Sukkur IBA University</p>
 </div>
 </div>
 </section>
