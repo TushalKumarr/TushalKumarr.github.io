@@ -9,7 +9,13 @@ const RESUME_B64 = 'JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFn
 /* ── 0. INJECT PHOTO ───────────────────────────────────────── */
 (function () {
   const img = document.getElementById('heroPhoto');
-  if (img) img.src = 'data:image/jpeg;base64,' + PHOTO_B64;
+  if (!img) return;
+  img.src = PHOTO_B64;
+  img.addEventListener('error', () => {
+    // If the hosted photo ever fails to load, hide the empty box
+    // instead of showing a broken-image icon.
+    img.closest('.portrait-img')?.classList.add('portrait-img--empty');
+  });
 })();
 
 
