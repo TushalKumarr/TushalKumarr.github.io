@@ -13,23 +13,39 @@
 <link rel="stylesheet" href="style.css" />
 <style>
 /* ===== Experience section redesign (v2) ===== */
-.exp-wrap--v2{display:flex;flex-direction:column;gap:1.5rem;max-width:820px;margin:0 auto}
-.exp-card{border-radius:16px;padding:1.75rem 2rem;}
+.exp-wrap--v2{display:flex;flex-direction:column;gap:1.5rem;max-width:820px;margin:0 auto;position:relative}
+.exp-card{border-radius:16px;padding:1.75rem 2rem;position:relative;z-index:1;}
 .exp-card-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
 .exp-icon-circle{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .exp-icon-circle--blue{background:rgba(59,130,246,0.15);color:#2563eb}
 .exp-icon-circle--purple{background:rgba(124,109,250,0.15);color:#7c3aed}
 .exp-icon-circle--green{background:rgba(16,185,129,0.15);color:#10b981}
+.exp-icon-circle--gold{background:rgba(234,179,8,0.15);color:#eab308}
 .exp-card-headtext h3{font-size:1.15rem;font-weight:700;margin:0 0 0.2rem 0;line-height:1.3}
 .exp-role{font-size:0.92rem;font-weight:600;margin-bottom:0.15rem;opacity:0.85}
 .exp-date{font-size:0.82rem;font-weight:500;opacity:0.6}
 .exp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.7rem}
 .exp-list li{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.92rem;line-height:1.55}
 .exp-list-icon{flex-shrink:0;color:#3b82f6;font-size:0.8rem;margin-top:0.2rem;font-weight:700}
+
+/* Connecting timeline line running through the whole journey */
+.exp-timeline-line{position:absolute;left:54px;top:50px;bottom:50px;width:2px;background:linear-gradient(to bottom, var(--primary), var(--accent));opacity:0.4;z-index:0;pointer-events:none}
+.exp-timeline-line::before,.exp-timeline-line::after{content:'';position:absolute;left:50%;width:9px;height:9px;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 10px rgba(124,109,250,0.5)}
+.exp-timeline-line::before{top:-4px;background:var(--primary)}
+.exp-timeline-line::after{bottom:-4px;background:var(--accent)}
+
+/* Achievement card — reuses the same card width/padding as the job cards above it */
+.exp-card--achievement{text-align:center;padding:2.75rem 2.5rem}
+.exp-card--achievement .exp-card-head{flex-direction:column;align-items:center;gap:0.85rem;margin-bottom:0}
+.exp-card--achievement .exp-card-headtext{text-align:center}
+.exp-card--achievement .exp-icon-circle{width:56px;height:56px}
+
 @media (max-width:640px){
 .exp-card{padding:1.25rem 1.35rem}
 .exp-card-head{gap:0.75rem}
 .exp-icon-circle{width:38px;height:38px}
+.exp-timeline-line{left:40px}
+.exp-card--achievement{padding:2rem 1.35rem}
 }
 </style>
 </head>
@@ -411,6 +427,8 @@ shipping work I'm proud of.
 <h2 class="section-title">My <span class="text-gradient">Journey</span></h2>
 </div>
 <div class="exp-wrap exp-wrap--v2">
+<div class="exp-timeline-line"></div>
+
 <div class="exp-card glass reveal-left">
 <div class="exp-card-head">
 <div class="exp-icon-circle exp-icon-circle--green">
@@ -428,6 +446,7 @@ shipping work I'm proud of.
 <li><span class="exp-list-icon">✓</span>Validated system reliability through 31 automated test cases, ensuring consistent booking behavior and robust error handling across edge cases</li>
 </ul>
 </div>
+
 <div class="exp-card glass reveal-left">
 <div class="exp-card-head">
 <div class="exp-icon-circle exp-icon-circle--blue">
@@ -449,14 +468,19 @@ shipping work I'm proud of.
 </ul>
 </div>
 
-<div class="exp-wrap">
-<div class="achievement glass-strong reveal-up">
-<div class="ach-icon">
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+<div class="exp-card glass-strong reveal-up exp-card--achievement">
+<div class="exp-card-head">
+<div class="exp-icon-circle exp-icon-circle--gold">
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
 </div>
-<div class="ach-eyebrow">Achievement</div>
+<div class="exp-card-headtext">
 <h3>Prime Minister Laptop Award</h3>
-<p>Prime Minister Youth Scheme · 2025–26 · Sukkur IBA University</p>
+<div class="exp-role">Prime Minister Youth Scheme</div>
+<div class="exp-date">2025 – 26 · Sukkur IBA University</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 </section>
