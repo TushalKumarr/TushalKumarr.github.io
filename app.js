@@ -223,3 +223,20 @@ if (window.matchMedia('(pointer: fine)').matches) {
 
 /* ── INIT ──────────────────────────────────────────────────── */
 onScroll();
+
+/* ── 15. EXPERIENCE TIMELINE PROGRESS ──────────────────────── */
+(function () {
+  const tl = document.getElementById('expTimeline');
+  if (!tl) return;
+  const nodes = tl.querySelectorAll('.exp-node');
+  function update() {
+    const r = tl.getBoundingClientRect();
+    const trigger = window.innerHeight * 0.6;
+    const p = Math.min(Math.max((trigger - r.top) / r.height, 0), 1);
+    tl.style.setProperty('--exp-progress', (p * 100) + '%');
+    nodes.forEach(n => n.classList.toggle('active', n.getBoundingClientRect().top < trigger));
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
