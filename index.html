@@ -419,71 +419,62 @@ shipping work I'm proud of.
 </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="section">
-<div class="container">
-<div class="section-header reveal-up">
-<div class="eyebrow">Experience</div>
-<h2 class="section-title">My <span class="text-gradient">Journey</span></h2>
-</div>
-<div class="exp-wrap exp-wrap--v2">
-<div class="exp-timeline-line"></div>
+<style>
+/* ===== Experience: alternating timeline ===== */
+.exp-timeline{--exp-progress:0%;position:relative;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem;padding:1rem 0}
 
-<div class="exp-card glass reveal-left">
-<div class="exp-card-head">
-<div class="exp-icon-circle exp-icon-circle--green">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-</div>
-<div class="exp-card-headtext">
-<h3>SafeX Solutions</h3>
-<div class="exp-role">AI/ML Intern</div>
-<div class="exp-date">July 2026 – Sept 2026</div>
-</div>
-</div>
-<ul class="exp-list">
-<li><span class="exp-list-icon">✓</span>Designed and developed an AI-driven Restaurant Reservation Assistant as a core internship project, engineering the decision logic with a finite state machine (FSM) to automate guest booking, seating recommendations, and real-time availability handling</li>
-<li><span class="exp-list-icon">✓</span>Owned the project end-to-end: from requirement analysis and rule-based logic design to implementation, testing, and deployment-ready delivery</li>
-<li><span class="exp-list-icon">✓</span>Validated system reliability through 31 automated test cases, ensuring consistent booking behavior and robust error handling across edge cases</li>
-</ul>
-</div>
+/* Progress line (track + scroll-driven fill, faded at both ends) */
+.exp-track{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);border-radius:2px;background:rgba(124,109,250,.18);z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 88%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 88%,transparent 100%)}
+.exp-track::after{content:'';position:absolute;left:0;top:0;width:100%;height:var(--exp-progress);background:linear-gradient(to bottom,var(--primary),var(--accent));box-shadow:0 0 12px rgba(124,109,250,.6)}
 
-<div class="exp-card glass reveal-left">
-<div class="exp-card-head">
-<div class="exp-icon-circle exp-icon-circle--blue">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-</div>
-<div class="exp-card-headtext">
-<h3>Faysal Bank Limited</h3>
-<div class="exp-role">Software / IT Intern</div>
-<div class="exp-date">June 2026 – July 2026</div>
-</div>
-</div>
-<ul class="exp-list">
-<li><span class="exp-list-icon">✓</span>Analyzed 1,000+ internal banking records using SQL and Excel to identify operational trends and support data-driven decision-making</li>
-<li><span class="exp-list-icon">✓</span>Cleaned, validated, and prepared transactional datasets for weekly branch reports</li>
-<li><span class="exp-list-icon">✓</span>Applied data analysis and visualization techniques in a live, regulated environment</li>
-<li><span class="exp-list-icon">✓</span>Queried and maintained relational databases for customer account, transaction, and card issuance records</li>
-<li><span class="exp-list-icon">✓</span>Observed a Java-based statement generation application querying a backend database to produce real-time customer account statements</li>
-<li><span class="exp-list-icon">✓</span>Applied information security practices including role-based access control, data classification, and confidentiality requirements</li>
-</ul>
-</div>
+/* One row = card + centre node */
+.exp-row{display:grid;grid-template-columns:1fr 56px 1fr;align-items:start;position:relative;z-index:1}
+.exp-row--left  .exp-card{grid-column:1;grid-row:1}
+.exp-row--right .exp-card{grid-column:3;grid-row:1}
+.exp-node{grid-column:2;grid-row:1;justify-self:center;margin-top:2rem;width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid var(--primary);z-index:2;transition:background .4s,border-color .4s,box-shadow .4s,transform .4s}
+.exp-node.active{background:var(--grad-primary);border-color:transparent;box-shadow:var(--glow);transform:scale(1.12)}
 
-<div class="exp-card glass-strong reveal-up exp-card--achievement">
-<div class="exp-card-head">
-<div class="exp-icon-circle exp-icon-circle--gold">
-<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-</div>
-<div class="exp-card-headtext">
-<h3>Prime Minister Laptop Award</h3>
-<div class="exp-role">Prime Minister Youth Scheme</div>
-<div class="exp-date">2025 – 26 · Sukkur IBA University</div>
-</div>
-</div>
-</div>
+/* Card */
+.exp-card{position:relative;border-radius:18px;padding:1.75rem 2rem;transition:box-shadow .3s ease,border-color .3s ease}
+.exp-card:hover{box-shadow:var(--glow);border-color:rgba(124,109,250,.35)}
+/* small connector from card to node */
+.exp-card::after{content:'';position:absolute;top:calc(2rem + 10px);width:19px;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:.5}
+.exp-row--left  .exp-card::after{right:-19px}
+.exp-row--right .exp-card::after{left:-19px}
 
-</div>
-</div>
-</section>
+.exp-card-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.exp-icon-circle{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.exp-icon-circle--blue{background:rgba(59,130,246,.15);color:#2563eb}
+.exp-icon-circle--green{background:rgba(16,185,129,.15);color:#10b981}
+.exp-icon-circle--gold{background:rgba(234,179,8,.15);color:#eab308}
+.exp-card-headtext h3{font-size:1.15rem;font-weight:700;margin:0 0 .2rem;line-height:1.3;color:var(--fg)}
+.exp-role{font-size:.92rem;font-weight:600;color:var(--primary);margin-bottom:.15rem}
+.exp-date{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted)}
+
+.exp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.exp-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.88rem;line-height:1.65;color:var(--muted)}
+.exp-list-icon{flex-shrink:0;color:var(--accent);font-size:.8rem;margin-top:.2rem;font-weight:700}
+
+/* Achievement card: same glass look + subtle gradient wash and glowing icon */
+.exp-card--achievement{border-color:rgba(124,109,250,.3);overflow:hidden}
+.exp-card--achievement::before{content:'';position:absolute;inset:0;background:var(--grad-primary);opacity:.07;pointer-events:none}
+.exp-card--achievement .exp-card-head{margin-bottom:0;position:relative;z-index:1;align-items:center}
+.exp-card--achievement .exp-icon-circle{width:56px;height:56px;background:var(--grad-primary);color:#fff;border-radius:14px;animation:pulse-glow 3s ease-in-out infinite}
+.exp-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.3em;color:var(--primary);margin-bottom:.35rem}
+
+/* Mobile: line on the left, all cards on the right */
+@media (max-width:768px){
+  .exp-track{left:20px}
+  .exp-row{grid-template-columns:40px 1fr}
+  .exp-node{grid-column:1}
+  .exp-row--left .exp-card,.exp-row--right .exp-card{grid-column:2}
+  .exp-row--left .exp-card::after{right:auto;left:-19px}
+  .exp-card{padding:1.25rem 1.35rem}
+  .exp-icon-circle{width:38px;height:38px}
+}
+</style>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
