@@ -1070,3 +1070,85 @@ body{font-family:'Raleway',system-ui,sans-serif}
   .portrait-wrap{height:28rem;width:min(100%,26rem)}
 }
 @media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+
+
+/* ============================================================
+   SECTIONS: grey and black bands joined by the hero's diagonal
+   ============================================================ */
+.section--ink{
+  --bg:#000;--bg2:#0a0a0a;--fg:#f2f2f2;--fg2:#d0d0d0;--muted:#a8a8a8;--primary:#fff;--accent:#fff;
+  --border:rgba(255,255,255,.18);--glass-bg:rgba(255,255,255,.06);--glass-strong-bg:#111;
+  --tag-bg:rgba(255,255,255,.08);--tag-border:rgba(255,255,255,.24);
+  --grad-primary:linear-gradient(#f2f2f2,#f2f2f2);--grad-text:linear-gradient(#f2f2f2,#f2f2f2);
+  --card-shadow:0 10px 30px rgba(0,0,0,.6);--glow:0 10px 30px rgba(0,0,0,.6);
+  background:#000;color:var(--fg);
+  clip-path:polygon(0 3.5rem,100% 0,100% calc(100% - 3.5rem),0 100%);
+  margin:-1.75rem 0;padding:9.5rem 0 10rem;
+}
+.footer{margin-top:0;border-top:0;background:var(--bg)}
+
+/* Headers: left aligned, bar + label, big title */
+.section-header{text-align:left;margin-bottom:3.5rem}
+.eyebrow{display:flex;align-items:center;gap:.9rem;padding:0;background:none;border:0;border-radius:0;font-size:.72rem;letter-spacing:.2em;color:var(--fg)}
+.eyebrow::before{content:'';width:2.75rem;height:3px;background:var(--fg)}
+.section-title{font-size:clamp(2.4rem,6vw,4.2rem);letter-spacing:-.02em;line-height:1.05}
+
+/* Cards: flat, soft tile shadow like the reference icons */
+.glass,.glass-strong{border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,.12);backdrop-filter:none;-webkit-backdrop-filter:none}
+.section--ink .glass,.section--ink .glass-strong{box-shadow:none}
+.skill-group:hover,.tl-item:hover,.project-card:hover{transform:none;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.sg-icon,.svc-icon,.ci-icon,.ach-icon,.back-to-top,.btn-send,.filter-btn.active{color:var(--bg)}
+.sg-icon,.ci-icon,.tl-dot,.svc-icon{box-shadow:none;border-radius:6px}
+.skill-group:hover .sg-icon{transform:none}
+
+/* About */
+.info-card{border-radius:6px}
+.stat-item{text-align:left;border-top:3px solid var(--fg);padding-top:.9rem}
+.stat-num{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-.02em}
+.stat-label,.comp-pct,.tl-year,.info-label{font-family:'Montserrat',sans-serif;font-weight:700}
+.tl-year{color:var(--fg)}
+.timeline-line{background:var(--border)}
+
+/* Skills */
+.prog-track,.prog-bar{border-radius:0}
+.prog-track{height:6px}
+.comp-title{font-weight:800}
+
+/* Services: ruled list instead of a card grid */
+.services-grid{display:flex;flex-direction:column;gap:0;border-top:3px solid var(--fg)}
+.glass.service-card{display:grid;grid-template-columns:3.25rem minmax(0,1fr) minmax(0,1.5fr);align-items:center;gap:1rem 2rem;padding:1.75rem .25rem;border:0;border-bottom:1px solid var(--border);border-radius:0;background:none;box-shadow:none;transform:none}
+.service-card h3{font-size:1.4rem;font-weight:800;margin:0}
+.service-card p{color:var(--muted);margin:0;line-height:1.65}
+.svc-icon{margin:0}
+.svc-num{display:none}
+@media (max-width:767px){
+  .glass.service-card{grid-template-columns:3rem 1fr}
+  .service-card p{grid-column:1 / -1}
+}
+
+/* Projects */
+.filter-btn{border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;border:2px solid var(--fg);color:var(--fg);background:none}
+.filter-btn:hover{background:var(--tag-bg)}
+.filter-btn.active{background:var(--fg);box-shadow:none;border-color:var(--fg)}
+.project-card{overflow:hidden}
+.proj-img img{filter:grayscale(1) contrast(1.05);transition:filter .5s ease}
+.project-card:hover .proj-img img{filter:none}
+.proj-cat{background:#fff;color:#000;border-radius:3px;font-family:'Montserrat',sans-serif;font-weight:700}
+.proj-body h3{font-weight:800}
+.proj-link{font-family:'Montserrat',sans-serif;font-weight:700}
+
+/* Experience lines up with the left-aligned headers */
+#expTimeline.exp-timeline{margin:0;max-width:900px}
+
+/* Contact */
+.form-group input,.form-group textarea{border-radius:4px}
+.form-group label{font-family:'Montserrat',sans-serif;font-weight:700}
+.btn-send{background:var(--fg);box-shadow:none;border-radius:6px;font-weight:800}
+.social-btn{border-radius:6px;box-shadow:0 4px 8px rgba(0,0,0,.4)}
+.contact-item{border-radius:6px}
+.back-to-top{background:var(--fg);border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.footer-copy{font-family:'Montserrat',sans-serif;font-weight:600}
+
+@media (max-width:767px){
+  .section--ink{clip-path:polygon(0 2rem,100% 0,100% calc(100% - 2rem),0 100%);margin:-1rem 0;padding:7rem 0 8rem}
+}
