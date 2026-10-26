@@ -32,6 +32,8 @@ themeToggle.addEventListener('click', () => {
 
 /* ── 2. RESUME DOWNLOAD (base64 embedded — always works) ───── */
 document.getElementById('resumeDownload').addEventListener('click', e => {
+  // No embedded PDF available -> let the normal <a download> link work
+  if (typeof RESUME_B64 === 'undefined') return;
   e.preventDefault();
   // Build a real PDF blob from the embedded base64 and trigger download
   const bytes  = atob(RESUME_B64);
@@ -209,7 +211,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
   const glow = document.createElement('div');
   Object.assign(glow.style, {
     position: 'fixed', width: '28rem', height: '28rem', borderRadius: '50%',
-    background: 'radial-gradient(circle,rgba(124,109,250,0.07) 0%,transparent 70%)',
+    background: 'radial-gradient(circle,rgba(128,128,128,0.12) 0%,transparent 70%)',
     pointerEvents: 'none', transform: 'translate(-50%,-50%)', zIndex: '0',
     transition: 'left .15s ease,top .15s ease',
   });
