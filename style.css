@@ -1196,3 +1196,40 @@ body{font-family:'Raleway',system-ui,sans-serif}
 /* 5. Hero photo: transparent cut-out sitting on the black panel */
 .portrait-img.is-cutout img{object-fit:contain;object-position:bottom center}
 .portrait-img.is-boxed{-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent);mask-image:linear-gradient(to bottom,#000 78%,transparent)}
+
+
+/* ============================================================
+   REVISION: readable text on black bands + collapsible sections
+   ============================================================ */
+.section--ink,[data-theme="dark"] .section--ink{
+  --muted:#c4c4c4;--fg2:#e6e6e6;
+  --tag-bg:rgba(255,255,255,.12);--tag-border:rgba(255,255,255,.42);
+  --input-bg:rgba(255,255,255,.09);--input-border:rgba(255,255,255,.32);
+}
+.tag{color:var(--fg);font-weight:600}
+.proj-body p{color:var(--muted)}
+.proj-body p[style]{opacity:.9!important}
+.project-card .proj-cat{background:#fff;color:#000}
+.form-group label{color:var(--fg)}
+.form-group input,.form-group textarea{background:var(--input-bg);border:1px solid var(--input-border);color:var(--fg)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.62);opacity:1}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--fg);outline:none;background:rgba(255,255,255,.14)}
+.ci-label{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.ci-val{color:var(--fg);font-weight:600}
+.contact-intro{color:var(--fg2)}
+
+/* Heading bar = open/close toggle */
+.eyebrow::before{display:none}
+.sec-toggle{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .4rem;margin:-.6rem 0 -.6rem -.4rem;color:var(--fg);border-radius:4px}
+.sec-toggle .bar{display:block;width:2.75rem;height:3px;background:currentColor;transition:width .3s ease}
+.sec-toggle svg{width:16px;height:16px;transition:transform .35s ease}
+.sec-toggle:hover .bar{width:3.5rem}
+.sec-toggle:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.sec-toggle[aria-expanded="false"] svg{transform:rotate(-90deg)}
+.sec-collapse{display:grid;grid-template-rows:1fr;transition:grid-template-rows .5s ease}
+.sec-collapse.closed{grid-template-rows:0fr}
+.sec-body{min-height:0;overflow:hidden;padding:1rem 1rem 2.5rem;margin:-1rem -1rem -2.5rem}
+.sec-collapse.closed .sec-body{visibility:hidden;transition:visibility 0s .5s}
+.section-header{transition:margin-bottom .5s ease}
+.section-header.is-closed{margin-bottom:0}
+@media (prefers-reduced-motion:reduce){.sec-collapse,.section-header{transition:none}}
