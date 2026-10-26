@@ -1152,3 +1152,47 @@ body{font-family:'Raleway',system-ui,sans-serif}
 @media (max-width:767px){
   .section--ink{clip-path:polygon(0 2rem,100% 0,100% calc(100% - 2rem),0 100%);margin:-1rem 0;padding:7rem 0 8rem}
 }
+
+
+/* ============================================================
+   REVISION: dark bands, transparent centred nav, photo, experience
+   ============================================================ */
+/* 1. Dark mode bands: soft charcoal instead of pure black; photos in natural colour */
+[data-theme="dark"] .section--ink{
+  --bg:#262626;--bg2:#2c2c2c;--glass-bg:rgba(255,255,255,.05);--glass-strong-bg:#2e2e2e;
+  --border:rgba(255,255,255,.14);--tag-bg:rgba(255,255,255,.07);--tag-border:rgba(255,255,255,.2);
+  background:#262626;
+}
+.proj-img img{filter:none}
+.project-card:hover .proj-img img{filter:none}
+.proj-overlay{background:linear-gradient(to top,rgba(0,0,0,.28) 0%,transparent 55%)}
+
+/* 2. Navbar: transparent, links centred */
+.nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:1rem}
+.nav-links{margin:0;background:none;padding:0;border-radius:0;gap:1.75rem}
+.nav-links .nav-link{color:var(--muted)}
+.nav-links .nav-link:hover,.nav-links .nav-link.active{color:var(--fg)}
+.nav-links .nav-link::after{background:var(--fg)}
+.theme-toggle{color:var(--fg);background:none}
+.theme-icon{display:flex}
+@media (min-width:1024px){
+  /* over the hero the nav inverts against whatever is behind it: dark on grey, white on black */
+  .navbar:not(.scrolled){mix-blend-mode:difference}
+  .navbar:not(.scrolled) .nav-logo-icon{background:linear-gradient(#fff,#fff);-webkit-background-clip:text;background-clip:text}
+  .navbar:not(.scrolled) .nav-logo-icon::after,.navbar:not(.scrolled) .nav-links .nav-link::after{background:#fff}
+  .navbar:not(.scrolled) .nav-links .nav-link{color:#fff;opacity:.78}
+  .navbar:not(.scrolled) .nav-links .nav-link:hover,.navbar:not(.scrolled) .nav-links .nav-link.active{opacity:1}
+  .navbar:not(.scrolled) .theme-toggle{color:#fff;border-color:rgba(255,255,255,.7)}
+}
+@media (max-width:1199px){.nav-links{gap:1.25rem}}
+@media (max-width:1023px){.nav-inner{display:flex;justify-content:space-between}}
+
+/* 4. Experience: column centred on the page */
+#expTimeline.exp-timeline{margin:0 auto;max-width:880px}
+#experience .section-header{text-align:center}
+#experience .eyebrow{justify-content:center}
+
+/* 5. Hero photo: transparent cut-out sitting on the black panel */
+.portrait-img.is-cutout img{object-fit:contain;object-position:bottom center}
+.portrait-img.is-boxed{-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent);mask-image:linear-gradient(to bottom,#000 78%,transparent)}
