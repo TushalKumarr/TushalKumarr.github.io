@@ -251,6 +251,8 @@ onScroll();
    A photo that already has a transparent background is left as is. */
 (function () {
   const PHOTO_TOLERANCE = 46;
+  const PHOTO_CUTOUT = false;   // set true to try the automatic background removal
+  if (!PHOTO_CUTOUT) return;
   const img = document.getElementById('heroPhoto');
   if (!img) return;
   const box = img.closest('.portrait-img');
