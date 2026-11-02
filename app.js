@@ -82,7 +82,12 @@ function onScroll() {
   document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
 }
 
-window.addEventListener('scroll', onScroll, { passive: true });
+let scrollTick = false;
+window.addEventListener('scroll', () => {
+  if (scrollTick) return;
+  scrollTick = true;
+  requestAnimationFrame(() => { onScroll(); scrollTick = false; });
+}, { passive: true });
 
 
 /* ── 5. MOBILE NAV TOGGLE ──────────────────────────────────── */
@@ -210,15 +215,17 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 if (window.matchMedia('(pointer: fine)').matches) {
   const glow = document.createElement('div');
   Object.assign(glow.style, {
-    position: 'fixed', width: '28rem', height: '28rem', borderRadius: '50%',
+    position: 'fixed', left: '0', top: '0', width: '28rem', height: '28rem', borderRadius: '50%',
     background: 'radial-gradient(circle,rgba(128,128,128,0.12) 0%,transparent 70%)',
-    pointerEvents: 'none', transform: 'translate(-50%,-50%)', zIndex: '0',
-    transition: 'left .15s ease,top .15s ease',
+    pointerEvents: 'none', zIndex: '0', willChange: 'transform',
   });
   document.body.appendChild(glow);
+  let gx = 0, gy = 0, gTick = false;
   window.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
+    gx = e.clientX - 224; gy = e.clientY - 224;
+    if (gTick) return;
+    gTick = true;
+    requestAnimationFrame(() => { glow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0)'; gTick = false; });
   }, { passive: true });
 }
 
@@ -238,7 +245,12 @@ onScroll();
     tl.style.setProperty('--exp-progress', (p * 100) + '%');
     nodes.forEach(n => n.classList.toggle('active', n.getBoundingClientRect().top < trigger));
   }
-  window.addEventListener('scroll', update, { passive: true });
+  let expTick = false;
+  window.addEventListener('scroll', () => {
+    if (expTick) return;
+    expTick = true;
+    requestAnimationFrame(() => { update(); expTick = false; });
+  }, { passive: true });
   window.addEventListener('resize', update);
   update();
 })();
