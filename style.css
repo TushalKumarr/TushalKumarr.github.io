@@ -1247,3 +1247,23 @@ body{font-family:'Raleway',system-ui,sans-serif}
   .hero-visual{padding:0 1.1rem 4rem 0}
   .portrait-wrap{width:min(100%,22rem)}
 }
+
+
+/* ============================================================
+   PERFORMANCE: smoother scrolling
+   ============================================================ */
+/* live blur behind moving content is the biggest cost: remove it everywhere */
+*,*::before,*::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+/* diagonal bands: small corner triangles instead of clipping the whole section */
+.section--ink{clip-path:none;margin:0;padding:8rem 0 9rem;position:relative}
+.section--ink::before,.section--ink::after{content:'';position:absolute;left:0;right:0;height:3.5rem;background:var(--bg);pointer-events:none}
+.section--ink::before{top:calc(-3.5rem + 1px);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.section--ink::after{bottom:calc(-3.5rem + 1px);clip-path:polygon(0 0,100% 0,0 100%)}
+@media (max-width:767px){
+  .section--ink{margin:0;padding:6rem 0 7rem}
+  .section--ink::before,.section--ink::after{height:2rem}
+  .section--ink::before{top:calc(-2rem + 1px)}
+  .section--ink::after{bottom:calc(-2rem + 1px)}
+}
+.reveal-up,.reveal-left,.reveal-right{will-change:opacity,transform}
+.revealed{will-change:auto}
