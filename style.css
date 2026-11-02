@@ -1267,3 +1267,21 @@ body{font-family:'Raleway',system-ui,sans-serif}
 }
 .reveal-up,.reveal-left,.reveal-right{will-change:opacity,transform}
 .revealed{will-change:auto}
+
+
+/* ============================================================
+   REVISION: hero badge + socials, skill levels, small fixes
+   ============================================================ */
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;width:fit-content;margin:0 0 1.25rem;padding:.45rem 1rem;border:1.5px solid var(--fg);border-radius:999px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg)}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--fg)}
+.hero-social{display:flex;gap:1rem;margin-top:.5rem}
+.social-tile{width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-radius:6px;color:var(--fg);background:var(--glass-bg);border:1px solid var(--border);box-shadow:0 4px 10px rgba(0,0,0,.18);transition:background .25s,color .25s}
+.social-tile:hover{background:var(--fg);color:var(--bg)}
+.lvl{display:flex;gap:6px;margin-top:.55rem}
+.lvl i{flex:1;height:6px;background:var(--border)}
+.lvl i.on{background:var(--fg)}
+.comp-pct{font-size:.78rem;letter-spacing:.04em}
+.ci-val{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+.footer-copy a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.footer-copy a:hover{color:var(--fg)}
+@media (max-width:640px){.hero-badge{font-size:.62rem;letter-spacing:.08em}}
