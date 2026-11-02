@@ -364,3 +364,13 @@ onScroll();
     });
   });
 })();
+
+
+/* ── 18. OPEN A COLLAPSED SECTION WHEN ITS LINK IS CLICKED ───── */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a || a.getAttribute('href').length < 2) return;
+  const target = document.querySelector(a.getAttribute('href'));
+  const t = target && target.querySelector('.sec-toggle[aria-expanded="false"]');
+  if (t) t.click();
+});
