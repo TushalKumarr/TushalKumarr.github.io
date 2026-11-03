@@ -1047,7 +1047,7 @@ body{font-family:'Raleway',system-ui,sans-serif}
 /* Hero: diagonal black panel on the right, photo sits on it */
 .hero{align-items:stretch;padding:0 1.5rem}
 .hero::before{content:'';position:absolute;inset:0;background:#000;clip-path:polygon(52% 0,100% 0,100% 100%,41% 100%);z-index:0}
-.hero-bg-grid,.hero-glow,.hero-orb-glow,.hero-visual .code-fragment{display:none}
+.hero-bg-grid,.hero-glow,.hero-orb-glow,.orbital,.portrait-ring,.portrait-bg,.scroll-indicator,.hero-visual .code-fragment{display:none}
 .hero-inner{align-items:stretch;gap:2rem}
 .hero-content{justify-content:center;padding:8rem 0 4rem;gap:1.75rem}
 .hero-text{gap:.5rem}
@@ -1316,20 +1316,26 @@ body{font-family:'Raleway',system-ui,sans-serif}
 
 
 /* ============================================================
-   REVISION: original hero portrait (blob + ring + orbitals), monochrome
+   REVISION: hero exactly as approved (framed photo, bold name),
+   fitted to one screen; transparent nav
    ============================================================ */
-.portrait-wrap::after{display:none}
-.portrait-wrap{width:22rem;height:22rem;aspect-ratio:auto;margin:0;isolation:auto}
-@media (min-width:768px){.portrait-wrap{width:26rem;height:26rem}}
-.portrait-ring{background:var(--fg);opacity:.35;animation:spin 22s linear infinite}
-.portrait-bg{background:var(--portrait-bg);animation:none}
-.orbital-1{border-color:rgba(128,128,128,.28)}
-.orbital-2{border-color:rgba(128,128,128,.22)}
-.portrait-img,.portrait-img.is-cutout,.portrait-img.is-boxed{
-  inset:14px;border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;background:transparent;animation:none;
-  box-shadow:0 20px 45px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.06)}
-.portrait-img img{object-fit:cover;object-position:top center}
+.hero{padding:6rem 1.5rem 2rem}
+.hero-content{gap:1.5rem}
+.hero-name{font-size:clamp(3rem,min(8vw,13vh),5.5rem)}
+.typewriter-wrap{height:2.6rem}
+.hero-desc{line-height:1.7}
+.hero-social{margin-top:0}
+.portrait-wrap::after{display:block}
+.portrait-wrap{width:auto;max-width:100%;height:min(31rem,calc(100svh - 10rem));aspect-ratio:4/5;margin:0 auto;isolation:isolate}
+.portrait-img,.portrait-img.is-cutout,.portrait-img.is-boxed{inset:0;border-radius:6px;background:#111;animation:none;box-shadow:0 24px 48px rgba(0,0,0,.28)}
 @media (max-width:1023px){
-  .hero-visual{order:-1;padding:0}
-  .portrait-wrap{width:16rem;height:16rem}
+  .hero{padding:6.5rem 1.5rem 3rem}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{order:0;padding:0 1.1rem 0 0}
+  .portrait-wrap{height:auto;width:min(100%,20rem)}
 }
+
+/* Navbar: transparent at the top and only lightly tinted when scrolling */
+.navbar{background:transparent}
+.navbar.scrolled{background:rgba(214,214,214,.55);box-shadow:none;border-bottom:0}
+[data-theme="dark"] .navbar.scrolled{background:rgba(20,20,20,.55)}
