@@ -1348,3 +1348,21 @@ body{font-family:'Raleway',system-ui,sans-serif}
 .hero-text{gap:.6rem}
 .portrait-wrap{height:min(30rem,calc(100svh - 12rem))}
 @media (max-width:1023px){.hero{padding:7rem 1.5rem 3rem}}
+
+/* ============================================================
+   REVISION: professional navigation bar
+   transparent over the hero, clean solid bar once you scroll
+   ============================================================ */
+.navbar{background:transparent;padding:.75rem 0;transition:background .3s ease,box-shadow .3s ease,padding .3s ease}
+.navbar.scrolled{background:var(--bg);padding:.45rem 0;border-bottom:1px solid var(--border);box-shadow:0 4px 18px rgba(0,0,0,.08)}
+[data-theme="dark"] .navbar.scrolled{background:var(--bg);box-shadow:0 4px 18px rgba(0,0,0,.4)}
+.nav-links{gap:.35rem}
+.nav-links .nav-link{padding:.55rem 1.05rem;border-radius:6px;font-size:.85rem;font-weight:600;letter-spacing:.01em;color:var(--fg2);transition:background .2s ease,color .2s ease}
+.nav-links .nav-link::after{display:none}
+.nav-links .nav-link:hover{background:var(--tag-bg);color:var(--fg)}
+.nav-links .nav-link.active{background:var(--fg);color:var(--bg)}
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
+.theme-toggle:hover{background:var(--tag-bg)}
+.btn-hire,.navbar.scrolled .btn-hire{height:40px;padding:0 1.4rem;display:inline-flex;align-items:center;border-radius:999px;font-size:.76rem;letter-spacing:.04em;background:var(--fg);color:var(--bg);box-shadow:none}
+.btn-hire:hover{opacity:.85}
+@media (max-width:1199px){.nav-links .nav-link{padding:.5rem .8rem}}
